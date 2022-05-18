@@ -14,6 +14,8 @@ public class Sketch extends PApplet {
 
   int[][] intGrid = new int [ROW_COUNT][COLUMN_COUNT]; // Array responsible for the coloring of the grid
 
+  int cellSelected = 0; // The amount of cells selected
+
   
   /**
    * Called once at the beginning of execution, put your size all in this method
@@ -56,7 +58,7 @@ public class Sketch extends PApplet {
     
   }
 
-  public void mousePressed(){
+  public void mousePressed() {
 
     for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
       for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
@@ -64,11 +66,52 @@ public class Sketch extends PApplet {
           System.out.println("Click coords: (" + mouseX + ", " + mouseY + ") ; Grid coords: (row:" + (intRow+1) + ", column:" + (intColumn+1) + ")");
 
           if (intGrid[intRow][intColumn] == 0) {
-            intGrid[intRow][intColumn] = 1;
+            intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+            cellSelected++; // adds one to the cell counter
           }
           else if (intGrid[intRow][intColumn] == 1) {
-            intGrid[intRow][intColumn] = 0;
+            intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+            cellSelected--; // subtracts one to the cell counter
           }
+
+          if (intGrid[intRow+1][intColumn] == 0) {
+            intGrid[intRow+1][intColumn] = 1;
+            cellSelected++; // adds one to the cell counter
+          }
+          else if (intGrid[intRow+1][intColumn] == 1) {
+            intGrid[intRow+1][intColumn] = 0;
+            cellSelected--; // subtracts one to the cell counter
+          }
+          
+          if (intGrid[intRow-1][intColumn] == 0) {
+            intGrid[intRow-1][intColumn] = 1;
+            cellSelected++; // adds one to the cell counter
+          }
+          else if (intGrid[intRow-1][intColumn] == 1) {
+            intGrid[intRow-1][intColumn] = 0;
+            cellSelected--; // subtracts one to the cell counter
+          }
+          
+          if (intGrid[intRow][intColumn+1] == 0) {
+            intGrid[intRow][intColumn+1] = 1;
+            cellSelected++; // adds one to the cell counter
+          }
+          else if (intGrid[intRow][intColumn+1] == 1) {
+            intGrid[intRow][intColumn+1] = 0;
+            cellSelected--; // subtracts one to the cell counter
+          }
+
+          if (intGrid[intRow][intColumn-1] == 0) {
+            intGrid[intRow][intColumn-1] = 1;
+            cellSelected++; // adds one to the cell counter
+          }
+          else if (intGrid[intRow][intColumn-1] == 1) {
+            intGrid[intRow][intColumn-1] = 0;
+            cellSelected--; // subtracts one to the cell counter
+          }
+
+          System.out.println("Total of " + cellSelected + " cells are selected.");
+          System.out.println("");
           
         }
         
