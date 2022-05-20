@@ -34,7 +34,8 @@ public class Sketch extends PApplet {
    */
   public void setup() {
     background(0);
-    
+
+     // Test single cell
     //intGrid[1][5] = 1;
   }
 
@@ -97,7 +98,7 @@ public class Sketch extends PApplet {
             }
             
           }
-          else if (intRow == 9 && intColumn == 0) { // Top right
+          else if (intRow == (ROW_COUNT-1) && intColumn == 0) { // Top right
             if (intGrid[intRow][intColumn] == 0) { // Main block
               intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
               cellSelected++; // adds one to the cell counter
@@ -126,7 +127,7 @@ public class Sketch extends PApplet {
             }
             
           }
-          else if (intRow == 0 && intColumn == 9) { // Bottom left
+          else if (intRow == 0 && intColumn == (COLUMN_COUNT-1)) { // Bottom left
             if (intGrid[intRow][intColumn] == 0) { // Main block
               intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
               cellSelected++; // adds one to the cell counter
@@ -155,7 +156,7 @@ public class Sketch extends PApplet {
             }
             
           }
-          else if (intRow == 9 && intColumn == 9) { // Bottom right
+          else if (intRow == (ROW_COUNT-1) && intColumn == (COLUMN_COUNT-1)) { // Bottom right
             if (intGrid[intRow][intColumn] == 0) { // Main block
               intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
               cellSelected++; // adds one to the cell counter
@@ -222,7 +223,7 @@ public class Sketch extends PApplet {
             }
             
           }
-          else if (intColumn == 9) {
+          else if (intColumn == (COLUMN_COUNT-1)) {
             if (intGrid[intRow][intColumn] == 0) { // Main block
               intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
               cellSelected++; // adds one to the cell counter
@@ -298,7 +299,7 @@ public class Sketch extends PApplet {
             }
             
           }
-          else if (intRow == 9) {
+          else if (intRow == (ROW_COUNT-1)) {
             if (intGrid[intRow][intColumn] == 0) { // Main block
               intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
               cellSelected++; // adds one to the cell counter
