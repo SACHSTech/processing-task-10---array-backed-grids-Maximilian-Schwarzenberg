@@ -35,7 +35,7 @@ public class Sketch extends PApplet {
   public void setup() {
     background(0);
     
-    //intGrid[1][5] = 1;   
+    //intGrid[1][5] = 1;
   }
 
   /**
@@ -68,54 +68,318 @@ public class Sketch extends PApplet {
         if ((mouseX > intRow * (CELL_WIDTH + MARGIN) + MARGIN && mouseX < intRow * (CELL_WIDTH + MARGIN) + MARGIN + CELL_WIDTH) && (mouseY > intColumn * (CELL_HEIGHT + MARGIN) + MARGIN && mouseY < intColumn * (CELL_HEIGHT + MARGIN) + MARGIN + CELL_HEIGHT)) {
           System.out.println("Click coords: (" + mouseX + ", " + mouseY + ") ; Grid coords: (row:" + (intColumn+1) + ", column:" + (intRow+1) + ")");
 
-           // Main block
-          if (intGrid[intRow][intColumn] == 0) {
-            intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
-            cellSelected++; // adds one to the cell counter
-          }
-          else if (intGrid[intRow][intColumn] == 1) {
-            intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
-            cellSelected--; // subtracts one to the cell counter
-          }
-          
-           // Right block
-          if (intGrid[intRow+1][intColumn] == 0) { // && intRow < 8
-            intGrid[intRow+1][intColumn] = 1;
-            cellSelected++; // adds one to the cell counter
-          }
-          else if (intGrid[intRow+1][intColumn] == 1) { // && intRow < 8
-            intGrid[intRow+1][intColumn] = 0;
-            cellSelected--; // subtracts one to the cell counter
-          }
-          
-           // Left block
-          if (intGrid[intRow-1][intColumn] == 0) { // && intRow > 1
-            intGrid[intRow-1][intColumn] = 1;
-            cellSelected++; // adds one to the cell counter
-          }
-          else if (intGrid[intRow-1][intColumn] == 1) { // && intRow > 1
-            intGrid[intRow-1][intColumn] = 0;
-            cellSelected--; // subtracts one to the cell counter
-          }
+          if (intRow == 0 && intColumn == 0) { // Top left
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
 
-           // Bottom block
-          if (intGrid[intRow][intColumn+1] == 0) { // && intColumn < 8
-            intGrid[intRow][intColumn+1] = 1;
-            cellSelected++; // adds one to the cell counter
-          }
-          else if (intGrid[intRow][intColumn+1] == 1) { // && intColumn < 8
-            intGrid[intRow][intColumn+1] = 0;
-            cellSelected--; // subtracts one to the cell counter
-          }
+            if (intGrid[intRow+1][intColumn] == 0) { // Right block
+              intGrid[intRow+1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow+1][intColumn] == 1) {
+              intGrid[intRow+1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
 
-           // Top block
-          if (intGrid[intRow][intColumn-1] == 0) { // && intColumn > 1
-            intGrid[intRow][intColumn-1] = 1;
-            cellSelected++; // adds one to the cell counter
+            if (intGrid[intRow][intColumn+1] == 0) { // Bottom block
+              intGrid[intRow][intColumn+1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn+1] == 1) {
+              intGrid[intRow][intColumn+1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
           }
-          else if (intGrid[intRow][intColumn-1] == 1) { // && intColumn > 1
-            intGrid[intRow][intColumn-1] = 0;
-            cellSelected--; // subtracts one to the cell counter
+          else if (intRow == 9 && intColumn == 0) { // Top right
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+
+            if (intGrid[intRow-1][intColumn] == 0) { // Left block
+              intGrid[intRow-1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow-1][intColumn] == 1) {
+              intGrid[intRow-1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+
+            if (intGrid[intRow][intColumn+1] == 0) { // Bottom block
+              intGrid[intRow][intColumn+1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn+1] == 1) {
+              intGrid[intRow][intColumn+1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+          }
+          else if (intRow == 0 && intColumn == 9) { // Bottom left
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow+1][intColumn] == 0) { // Right block
+              intGrid[intRow+1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow+1][intColumn] == 1) {
+              intGrid[intRow+1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn-1] == 0) { // Top block
+              intGrid[intRow][intColumn-1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn-1] == 1) {
+              intGrid[intRow][intColumn-1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+          }
+          else if (intRow == 9 && intColumn == 9) { // Bottom right
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow-1][intColumn] == 0) { // Left block
+              intGrid[intRow-1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow-1][intColumn] == 1) {
+              intGrid[intRow-1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn-1] == 0) { // Top block
+              intGrid[intRow][intColumn-1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn-1] == 1) {
+              intGrid[intRow][intColumn-1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+          }
+          else if (intColumn == 0) {
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow+1][intColumn] == 0) { // Right block
+              intGrid[intRow+1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow+1][intColumn] == 1) {
+              intGrid[intRow+1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow-1][intColumn] == 0) { // Left block
+              intGrid[intRow-1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow-1][intColumn] == 1) {
+              intGrid[intRow-1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn+1] == 0) { // Bottom block
+              intGrid[intRow][intColumn+1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn+1] == 1) {
+              intGrid[intRow][intColumn+1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+          }
+          else if (intColumn == 9) {
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow+1][intColumn] == 0) { // Right block
+              intGrid[intRow+1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow+1][intColumn] == 1) {
+              intGrid[intRow+1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow-1][intColumn] == 0) { // Left block
+              intGrid[intRow-1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow-1][intColumn] == 1) {
+              intGrid[intRow-1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn-1] == 0) { // Top block
+              intGrid[intRow][intColumn-1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn-1] == 1) {
+              intGrid[intRow][intColumn-1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+          }
+          else if (intRow == 0) {
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow+1][intColumn] == 0) { // Right block
+              intGrid[intRow+1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow+1][intColumn] == 1) {
+              intGrid[intRow+1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn+1] == 0) { // Bottom block
+              intGrid[intRow][intColumn+1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn+1] == 1) {
+              intGrid[intRow][intColumn+1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn-1] == 0) { // Top block
+              intGrid[intRow][intColumn-1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn-1] == 1) {
+              intGrid[intRow][intColumn-1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+          }
+          else if (intRow == 9) {
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow-1][intColumn] == 0) { // Left block
+              intGrid[intRow-1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow-1][intColumn] == 1) {
+              intGrid[intRow-1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn+1] == 0) { // Bottom block
+              intGrid[intRow][intColumn+1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn+1] == 1) {
+              intGrid[intRow][intColumn+1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn-1] == 0) { // Top block
+              intGrid[intRow][intColumn-1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn-1] == 1) {
+              intGrid[intRow][intColumn-1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+          }
+          else { // Anywhere else
+            if (intGrid[intRow][intColumn] == 0) { // Main block
+              intGrid[intRow][intColumn] = 1; // if the cell isnt selected itll be selected
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn] == 1) {
+              intGrid[intRow][intColumn] = 0; // if the cell is selected itll be unselected
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow+1][intColumn] == 0) { // Right block
+              intGrid[intRow+1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow+1][intColumn] == 1) {
+              intGrid[intRow+1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+            
+            if (intGrid[intRow-1][intColumn] == 0) { // Left block
+              intGrid[intRow-1][intColumn] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow-1][intColumn] == 1) {
+              intGrid[intRow-1][intColumn] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn+1] == 0) { // Bottom block
+              intGrid[intRow][intColumn+1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn+1] == 1) {
+              intGrid[intRow][intColumn+1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
+  
+            if (intGrid[intRow][intColumn-1] == 0) { // Top block
+              intGrid[intRow][intColumn-1] = 1;
+              cellSelected++; // adds one to the cell counter
+            }
+            else if (intGrid[intRow][intColumn-1] == 1) {
+              intGrid[intRow][intColumn-1] = 0;
+              cellSelected--; // subtracts one to the cell counter
+            }
           }
           
 
@@ -127,6 +391,7 @@ public class Sketch extends PApplet {
       }
     }
 
+    /*
      // The amount of cells selected in a row
     for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
       for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
@@ -135,27 +400,20 @@ public class Sketch extends PApplet {
           rowSelected++;
         }
 
-        if (intColumn < COLUMN_COUNT-1) {
-          if (intGrid[intRow][intColumn] == 1 && intGrid[intRow][intColumn+1] == 1) {
-            continueSelected++;
-          }
-          
+        if (intColumn < COLUMN_COUNT-1 && intGrid[intRow][intColumn] == 1 && intGrid[intRow][intColumn+1] == 1) {
+          continueSelected++;
         }
-
-        if (intColumn > 0 && intColumn < COLUMN_COUNT) {
-          if (intGrid[intRow][intColumn-1] == 1 && intGrid[intRow][intColumn] == 1 && intColumn == COLUMN_COUNT-1) {
-            continueSelected++;
-          }
-          else if (intGrid[intRow][intColumn-1] == 1 && intGrid[intRow][intColumn] == 1 && intGrid[intRow][intColumn+1] == 1 && intColumn < COLUMN_COUNT-1) {
-            continueSelected++;
-          }
-          
+        else if (intColumn > 0 && intColumn < COLUMN_COUNT && intGrid[intRow][intColumn-1] == 1 && intGrid[intRow][intColumn] == 1 && intColumn == COLUMN_COUNT-1) {
+          continueSelected++;
+        }
+        else if (intColumn > 0 && intColumn < COLUMN_COUNT && intGrid[intRow][intColumn-1] == 1 && intGrid[intRow][intColumn] == 1 && intGrid[intRow][intColumn+1] == 1 && intColumn < COLUMN_COUNT-1) {
+          continueSelected++;
         }
         
       }
 
       if (continueSelected > 0 && rowSelected > 2) {
-        System.out.println("There are " + continueSelected + " continuous cells are selected in column " + (intRow+1) + ".");
+        System.out.println("There are " + (continueSelected+1) + " continuous cells are selected in column " + (intRow+1) + ".");
       }
       
       System.out.println("Total of " + rowSelected + " cells are selected in column " + (intRow+1) + ".");
@@ -182,6 +440,7 @@ public class Sketch extends PApplet {
     }
 
     System.out.println("");
+    */
     
   }
   
