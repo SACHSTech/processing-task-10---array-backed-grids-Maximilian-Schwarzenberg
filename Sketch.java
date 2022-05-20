@@ -44,15 +44,16 @@ public class Sketch extends PApplet {
    */
   public void draw() {
 
+     // Nested for loop to put value into the rows and columns
     for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
       for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
-        if (intGrid[intRow][intColumn] == 1) {
-          fill(0, 255, 0);
+        if (intGrid[intRow][intColumn] == 1) { // if the point in the array is equal 1
+          fill(0, 255, 0); // green
           noStroke();
           rect(intRow * (CELL_WIDTH + MARGIN) + MARGIN, intColumn * (CELL_HEIGHT + MARGIN) + MARGIN, CELL_WIDTH, CELL_HEIGHT);
         }
         else {
-          fill(255);
+          fill(255); // white
           noStroke();
           rect(intRow * (CELL_WIDTH + MARGIN) + MARGIN, intColumn * (CELL_HEIGHT + MARGIN) + MARGIN, CELL_WIDTH, CELL_HEIGHT);
         }
@@ -64,9 +65,11 @@ public class Sketch extends PApplet {
 
   public void mousePressed() {
 
+     // Nested for loop to put value into the rows and columns
     for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
       for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
         if ((mouseX > intRow * (CELL_WIDTH + MARGIN) + MARGIN && mouseX < intRow * (CELL_WIDTH + MARGIN) + MARGIN + CELL_WIDTH) && (mouseY > intColumn * (CELL_HEIGHT + MARGIN) + MARGIN && mouseY < intColumn * (CELL_HEIGHT + MARGIN) + MARGIN + CELL_HEIGHT)) {
+           // Output statement for the click coordinates and grid coordinates
           System.out.println("Click coords: (" + mouseX + ", " + mouseY + ") ; Grid coords: (row:" + (intColumn+1) + ", column:" + (intRow+1) + ")");
 
           if (intRow == 0 && intColumn == 0) { // Top left
@@ -395,11 +398,13 @@ public class Sketch extends PApplet {
      // The amount of cells selected in a row
     for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
       for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
-        
+
+         // Adds to rowSelected when theres a point on intGrid that equals to 1
         if (intGrid[intRow][intColumn] == 1) {
           rowSelected++;
         }
 
+         // Scans for patterns
         if (intColumn < COLUMN_COUNT-1 && intGrid[intRow][intColumn] == 1 && intGrid[intRow][intColumn+1] == 1) {
           continueSelected++;
         }
@@ -412,12 +417,14 @@ public class Sketch extends PApplet {
         
       }
 
+       // prints the number of continuous cell when condition is true
       if (continueSelected > 0 && rowSelected > 2) {
         System.out.println("There are " + (continueSelected+1) + " continuous cells are selected in column " + (intRow+1) + ".");
       }
       
       System.out.println("Total of " + rowSelected + " cells are selected in column " + (intRow+1) + ".");
-    
+
+       // Resets the variables
       continueSelected = 0;
       rowSelected = 0;
     }
@@ -427,7 +434,8 @@ public class Sketch extends PApplet {
      // The amount of cells selected in a column
     for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
       for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
-        
+
+         // Adds to columnSelected when theres a point on intGrid that equals to 1
         if (intGrid[intRow][intColumn] == 1) {
           columnSelected++;
         }
@@ -435,10 +443,12 @@ public class Sketch extends PApplet {
       }
       
       System.out.println("Total of " + columnSelected + " cells are selected in row " + (intColumn+1) + ".");
-    
+
+       // Resets the variables
       columnSelected = 0;
     }
 
+     // Spaces out the outputs
     System.out.println("");
     
   }
