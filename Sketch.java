@@ -391,7 +391,6 @@ public class Sketch extends PApplet {
       }
     }
 
-    /*
      // The amount of cells selected in a row
     for (int intRow = 0; intRow < ROW_COUNT; intRow++) {
       for (int intColumn = 0; intColumn < COLUMN_COUNT; intColumn++) {
@@ -440,7 +439,6 @@ public class Sketch extends PApplet {
     }
 
     System.out.println("");
-    */
     
   }
   
